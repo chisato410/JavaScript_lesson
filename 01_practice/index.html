@@ -21,22 +21,37 @@
         // document.getElementById('elem').style.backgroundColor = '#00ff00';
 
         const elem = document.getElementById('elem');
+        const elem2 = document.getElementById('elem2');
         // let変数名で変数を宣言。変数名 = 〇〇で変数にデータを入れる（代入）
-        elem.style.backgroundColor = '#0000ff';
-        elem.style.color = '#fff';
+        elem.addEventListener('mouseover', function(){
+            elem.style.fontSize = '50px';
+        });
+
+        elem.addEventListener('mouseout', function(){
+            elem.style.fontSize = '';
+        });
+
+        elem.addEventListener('mouseover', function(){
+            elem2.style.fontSize = '50px';
+        });
+
+        elem.addEventListener('mouseout', function(){
+            elem2.style.fontSize = '';
+        });
+
+        // elem.style.backgroundColor = '#0000ff';
+        // elem.style.color = '#fff';
         // 変数名にcssをつける
 
         console.log(elem);
 
-        // 練習
-        const elem2 = document.getElementById('elem2');
+        // css練習
         elem2.style.color = '#fff';
         elem2.style.backgroundColor = '#00f';
         elem2.style.marginTop = '20px';
-        elem2.style.fontSize = '50px'
+        // elem2.style.fontSize = '50px';
         // pxは文字扱いなのでシングルコーテーション
-        elem2.style.fontStyle = 'italic'
-
+        elem2.style.fontStyle = 'italic';
 
         // セミコロンは省略可
         // スペースや改行は自由にいれても良いが、単語の途中には入れない。
