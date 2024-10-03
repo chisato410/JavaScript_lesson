@@ -8,6 +8,7 @@
 <body>
     <h1 id="elem2">練習</h1>
     <p id="elem">変化させたい要素</p><!--「elem」は「element（要素）」の略 -->
+    <img id="image" src="https://picsum.photos/200/300?image=0">
 
     <script>
         // alert('Hello World!');
@@ -20,42 +21,48 @@
         // document.getElementById('elem').style.color = '#ff0000';
         // document.getElementById('elem').style.backgroundColor = '#00ff00';
 
+        // let変数名で変数を宣言。変数名 = 〇〇で変数にデータを入れる（代入）
         const elem = document.getElementById('elem');
         const elem2 = document.getElementById('elem2');
-        // let変数名で変数を宣言。変数名 = 〇〇で変数にデータを入れる（代入）
-        elem.addEventListener('mouseover', function(){
-            elem.style.fontSize = '50px';
-        });
 
-        elem.addEventListener('mouseout', function(){
-            elem.style.fontSize = '';
-        });
+        // 属性値の変更 setAttribute('属性の名前', '新しい属性')
+        const image = document.getElementById('image')
+        image.setAttribute('src', 'https://picsum.photos/200/300?image=100');
 
-        elem.addEventListener('mouseover', function(){
-            elem2.style.fontSize = '50px';
-        });
+        // タイミングの練習
+        // elem.addEventListener('mouseover', function(){
+        //     elem.style.fontSize = '50px';
+        // });
 
-        elem.addEventListener('mouseout', function(){
-            elem2.style.fontSize = '';
-        });
+        // elem.addEventListener('mouseout', function(){
+        //     elem.style.fontSize = '';
+        // });
 
-        elem2.addEventListener('click', function(){
-            elem.style.backgroundColor = '#f00';
-        });
+        // elem.addEventListener('mouseover', function(){
+        //     elem2.style.fontSize = '50px';
+        // });
+
+        // elem.addEventListener('mouseout', function(){
+        //     elem2.style.fontSize = '';
+        // });
+
+        // elem2.addEventListener('click', function(){
+        //     elem.style.backgroundColor = '#f00';
+        // });
 
         // elem.style.backgroundColor = '#0000ff';
         // elem.style.color = '#fff';
         // 変数名にcssをつける
 
-        console.log(elem);
+        // console.log(elem);
 
         // css練習
-        elem2.style.color = '#fff';
-        elem2.style.backgroundColor = '#00f';
-        elem2.style.marginTop = '20px';
-        // elem2.style.fontSize = '50px';
-        // pxは文字扱いなのでシングルコーテーション
-        elem2.style.fontStyle = 'italic';
+        // elem2.style.color = '#fff';
+        // elem2.style.backgroundColor = '#00f';
+        // elem2.style.marginTop = '20px';
+        // // elem2.style.fontSize = '50px';
+        // // pxは文字扱いなのでシングルコーテーション
+        // elem2.style.fontStyle = 'italic';
 
         // セミコロンは省略可
         // スペースや改行は自由にいれても良いが、単語の途中には入れない。
