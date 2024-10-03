@@ -16,7 +16,7 @@
         // confirm('';)だと、はいかいいえの設定ができる
 
         // alert(document.getElementById('elem'))
-        console.log(document.getElementById('elem'));
+        // console.log(document.getElementById('elem'));
 
         // document.getElementById('elem').style.color = '#ff0000';
         // document.getElementById('elem').style.backgroundColor = '#00ff00';
@@ -26,8 +26,17 @@
         const elem2 = document.getElementById('elem2');
 
         // 属性値の変更 setAttribute('属性の名前', '新しい属性')
-        const image = document.getElementById('image')
-        image.setAttribute('src', 'https://picsum.photos/200/300?image=100');
+        const image = document.getElementById('image');
+        const src = image.getAttribute('src')
+
+        elem.addEventListener('mouseover', function(){
+            image.setAttribute('src', 'https://picsum.photos/200/300?image=100');
+        });
+
+        elem.addEventListener('mouseout', function(){
+            image.setAttribute('src', src);
+        });
+
 
         // タイミングの練習
         // elem.addEventListener('mouseover', function(){
