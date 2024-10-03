@@ -6,6 +6,7 @@
     <title>JavaScriptの基礎</title>
 </head>
 <body>
+    <h1 id="elem2">練習</h1>
     <p id="elem">変化させたい要素</p><!--「elem」は「element（要素）」の略 -->
 
     <script>
@@ -16,7 +17,25 @@
         // alert(document.getElementById('elem'))
         console.log(document.getElementById('elem'));
 
-        document.getElementById('elem').style.color='#ff0000';
+        // document.getElementById('elem').style.color = '#ff0000';
+        // document.getElementById('elem').style.backgroundColor = '#00ff00';
+
+        const elem = document.getElementById('elem');
+        // let変数名で変数を宣言。変数名 = 〇〇で変数にデータを入れる（代入）
+        elem.style.backgroundColor = '#0000ff';
+        elem.style.color = '#fff';
+        // 変数名にcssをつける
+
+        console.log(elem);
+
+        // 練習
+        const elem2 = document.getElementById('elem2');
+        elem2.style.color = '#fff';
+        elem2.style.backgroundColor = '#00f';
+        elem2.style.marginTop = '20px';
+        elem2.style.fontSize = '50px'
+        // pxは文字扱いなのでシングルコーテーション
+        elem2.style.fontStyle = 'italic'
 
 
         // セミコロンは省略可
