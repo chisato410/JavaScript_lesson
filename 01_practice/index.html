@@ -3,17 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sample</title>
+    <title>JavaScriptの基礎</title>
 </head>
 <body>
-    <p>変化させたい要素</p>
+    <p id="elem">変化させたい要素</p><!--「elem」は「element（要素）」の略 -->
+
     <script>
-        alert('Hello World!');
+        // alert('Hello World!');
+        // window.alert('Hello World!');
+        // confirm('';)だと、はいかいいえの設定ができる
+
+        // alert(document.getElementById('elem'))
+        console.log(document.getElementById('elem'));
+
+        document.getElementById('elem').style.color='#ff0000';
+
+
         // セミコロンは省略可
         // スペースや改行は自由にいれても良いが、単語の途中には入れない。
         // 大文字と小文字は区別有り
         // 文字列（文字の並び）を扱う場合はシンブルクォート(')かダブルクォート(")で囲む。授業はシングルクォート
         // 文字列以外の箇所に「全角文字（空白）」は使用しない
-    </script>
+
+</script>
 </body>
 </html>
