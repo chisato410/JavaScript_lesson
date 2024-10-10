@@ -17,19 +17,19 @@
         // red
         const redBtn = document.getElementById('red');
         redBtn.addEventListener('click', function(){
-            document.body.style.backgroundColor = '#f00'
+            document.body.style.backgroundColor = `#${redBtn.innerHTML}`;
         });
 
         // green
         const greenBtn = document.getElementById('green');
         greenBtn.addEventListener('click', function(){
-            document.body.style.backgroundColor = '#0f0'
+            document.body.style.backgroundColor = `#${greenBtn.innerHTML}`;
         });
 
         // blue
         const blueBtn = document.getElementById('blue');
         blueBtn.addEventListener('click', function(){
-            document.body.style.backgroundColor = '#00f'
+            document.body.style.backgroundColor = `#${blueBtn.innerHTML}`;
         });
 
         // reset
