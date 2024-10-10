@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習01</title>
+</head>
+<body>
+    <p id="result">0</p><!-- /#result -->
+    <button id="plus">+</button><!-- /#plus -->
+    <button id="minus">-</button><!-- /#minus -->
+    <script>
+        // countの変数宣言
+        let count = 0;
+
+        // result(表示する値の変数)を宣言
+        const result = document.getElementById('result');
+        // plus(増えた値をいれる箱)を宣言
+        const plusButton = document.getElementById('plus');
+        // minus(減った値を入れる箱)を宣言
+        const minusButton = document.getElementById('minus');
+        // クリックイベントの登録
+        plusButton.addEventListener('click', function(){
+            // ボタンを押されただけ１ずつ増える
+            count +=  1;
+            // resultにcountをいれ表示
+            result.innerHTML = count;
+            // 10を超えると文字が赤くなる
+            if(count>=10){
+                document.getElementById('result').style.color = '#f00';
+            }else if(count<10){
+                document.getElementById('result').style.color = '#000';
+            }
+            console.log(count);
+        })
+        minusButton.addEventListener('click', function(){
+            count -= 1;
+            result.innerHTML = count;
+            // 0より小さいと文字が青くなる
+            if(count<0){
+                document.getElementById('result').style.color = '#00f';
+            }else if(count>=0){
+                document.getElementById('result').style.color = '#000'
+            }
+            console.log(count);
+        })
+    </script>
+</body>
+</html>

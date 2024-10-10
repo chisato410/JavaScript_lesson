@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習03</title>
+</head>
+<body>
+    <div>
+        <button id="left">←</button><!-- /#left -->
+        <button id="center">■</button><!-- /#center -->
+        <button id="right">→</button><!-- /#right -->
+    </div>
+
+    <img id="monster" src="https://pbs.twimg.com/media/EXae-7lWkAANYU6.png" alt="">
+
+    <script>
+        // countの宣言
+        let count = 0;
+        // monsterの宣言
+        const monster = document.getElementById('monster');
+
+        // 左のプログラム
+        const leftButton = document.getElementById('left');
+        leftButton.addEventListener('click', function(){
+            monster.style.transform = `translateX(${count -= 5}px)`
+        });
+
+        // 中央のプログラム
+        const centerButton = document.getElementById('center');
+        centerButton.addEventListener('click', function(){
+            monster.style.transform = `translateX(${count = 0}px)`
+        });
+
+        // 右のプログラム
+        const rightButton = document.getElementById('right');
+        rightButton.addEventListener('click', function(){
+            monster.style.transform = `translateX(${count += 5}px)`
+        });
+
+    </script>
+</body>
+</html>

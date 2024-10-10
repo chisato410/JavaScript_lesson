@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>問題01</title>
+</head>
+<body>
+    <div>
+        <button id="red">ff0000</button>
+        <button id="green">00ff00</button>
+        <button id="blue">0000ff</button>
+        <button id="reset">reset</button><!-- /#reset -->
+    </div>
+
+    <script>
+        // red
+        const redBtn = document.getElementById('red');
+        redBtn.addEventListener('click', function(){
+            document.body.style.backgroundColor = '#f00'
+        });
+
+        // green
+        const greenBtn = document.getElementById('green');
+        greenBtn.addEventListener('click', function(){
+            document.body.style.backgroundColor = '#0f0'
+        });
+
+        // blue
+        const blueBtn = document.getElementById('blue');
+        blueBtn.addEventListener('click', function(){
+            document.body.style.backgroundColor = '#00f'
+        });
+
+        // reset
+        const resetBtn = document.getElementById('reset');
+        resetBtn.addEventListener('click', function(){
+            document.body.style.backgroundColor = ''
+        });
+    </script>
+</body>
+</html>
