@@ -3,10 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>変数</title>
+    <title>条件分岐</title>
 </head>
 <body>
     <script>
+        // let fruit = 'りんご';
+
+        // if(fruit == 'りんご'){
+        //     console.log('りんごがあります。');
+        // }
+
+        // if(fruit == 'ばなな'){
+        //     console.log('ばなながあります。');
+        // }
+
+        // if(true){
+        //     console.log('条件式はtrueです。')
+        // }
+
+        // if(1 == '1'){
+        //     console.log('厳密には等しくないけど「true」');
+        // }
+
+        // if(1 === '1'){
+        //     console.log('厳密には等しくないから「false」');
+        // }
+
+        // 練習
+        // let year = 2024;
+        // let ad;
+        // let adYear;
+
+        // if(year >= 2019){
+        //     ad = ('令和');
+        // }
+
+        // if(ad = ('令和')){
+        //     adYear = year - 2019;
+        //     console.log('令和' + adYear + '年')
+        // }
+
+        // let fruit = 'りんご';
+
+        // if(fruit == 'ばなな'){
+        //     console.log('ばなながあります。');
+        // }else{
+        //     console.log('ばなな以外があります。');
+        // }
+
+        // let num = 10;
+
+        // if((num%2) == 0){
+        //     console.log('偶数！');
+        // }else{
+        //     console.log('奇数！');
+        // }
+
+        let year = 2019;
+
+        if(year <= 1925){
+            console.log('大昔');
+        }else if(year <=1989){
+            console.log('昭和' + (year-1925) + '年！');
+        }else if(year <= 2018){
+            console.log('平成' + (year-1989) + '年！');
+        }else if(year <=2024){
+            console.log('令和' + (year-2018) + '年！');
+        }else if(year >= 2025){
+            console.log('未来');
+        }
+
     </script>
 </body>
 </html>
