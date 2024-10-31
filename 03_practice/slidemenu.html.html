@@ -59,16 +59,27 @@
         //     console.log(menu.classList);
         // });
 
-        btn.addEventListener('click', function(){
-            let element = document.getElementById('menu');
-            if (element.className == '' ){
-                menu.classList.add('open');
-                btn.textContent = '閉じる';
-            } else {
+        // btn.addEventListener('click', function(){
+        //     let element = document.getElementById('menu');
+        //     if (element.className == '' ){
+        //         menu.classList.add('open');
+        //         btn.textContent = '閉じる';
+        //     } else {
+        //         menu.classList.remove('open');
+        //         btn.textContent = 'メニュー';
+        //     }
+        // })
+
+    btn.addEventListener('click', function () {
+            if (menu.classList.contains('open')) {
                 menu.classList.remove('open');
                 btn.textContent = 'メニュー';
+            } else {
+                menu.classList.add('open');
+                btn.textContent = '閉じる';
             }
         })
+
     </script>
 </body>
 </html>
