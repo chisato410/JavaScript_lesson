@@ -40,6 +40,7 @@
         }
     </style>
 </head>
+
 <body>
     <button id="btn">メニュー</button>
     <div id="menu">
@@ -53,10 +54,21 @@
         const btn = document.getElementById('btn');
         const menu = document.getElementById('menu');
 
+        // btn.addEventListener('click', function(){
+        //     menu.classList.toggle('open');
+        //     console.log(menu.classList);
+        // });
+
         btn.addEventListener('click', function(){
-            menu.classList.toggle('open');
-            console.log(menu.classList);
-        });
+            let element = document.getElementById('menu');
+            if (element.className == '' ){
+                menu.classList.add('open');
+                btn.textContent = '閉じる';
+            } else {
+                menu.classList.remove('open');
+                btn.textContent = 'menu';
+            }
+        })
     </script>
 </body>
 </html>
