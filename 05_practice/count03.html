@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>繰り返し処理-応用その3</title>
+</head>
+
+<body>
+    <button id="count">カウント</button><!-- /#count -->
+    <button id="display">表示</button><!-- /#display -->
+    <p id="result">0</p><!-- /#result -->
+
+
+    <script>
+        const count = document.getElementById('count');
+        const display = document.getElementById('display');
+        const result = document.getElementById('result');
+
+        let num = 0;
+
+        count.addEventListener('click', function(){
+            num += 1;
+            result.innerHTML = num;
+        });
+
+        display.addEventListener('click', function () {
+            let text = 0;
+            for (let i = 1; i <= num; ++i){
+                text += `,${i}`;
+            }
+
+            num = 0;
+            result.innerHTML = text;
+        });
+
+    </script>
+</body>

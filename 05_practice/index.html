@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>繰り返し処理</title>
+</head>
+
+<body>
+    <script>
+        // // 偶数
+        // let num = 0;
+
+        // while(num < 11){
+        //     console.log(num);
+        //     num += 2;
+        // }
+
+        // // 奇数
+        // let num2 = 1;
+
+        // while(num2 <= 10){
+        //     console.log(num2);
+        //     num2 += 2;
+        // }
+
+        // // ５回「りんご」と表示
+        // let count = 0;
+
+        // while (count < 5){
+        //     console.log("りんご");
+        //     count += 1;
+        // }
+
+        // // 0から100まで加算
+        // let num3 = 0;
+        // let sum = 0;
+
+        // while (num3 < 101){
+        //     sum += num3;
+        //     num3 += 1;
+        // }
+
+        // 0から20の間で偶数を表示
+        for (let i = 0; i <= 20; i += 2){
+            console.log(i);
+        }
+
+        // // 0から20の間で奇数を表示
+        // for (let i2 = 1; i2 <= 20; i2 += 2){
+        //     console.log(i2);
+        // }
+
+        // // 「ばなな」と10回表示
+        // for (let i3 = 0; i3 < 10; i3 += 1){
+        //     console.log("ばなな");
+        // }
+
+        // // 0から1000までの加算
+        // let sum = 0;
+        // for (let i4 = 0; i4 < 1001; i4 += 1){
+        //     sum+= i4;
+        // }
+        // console.log(sum);
+
+        // // インクリメント演算子
+        // let x = 0;
+        // x ++;
+        // console.log(x);
+
+        // // デクリメント演算子
+        // x --;
+        // console.log(x);
+
+        // break文
+        let num4 = 0;
+
+        while(num4<50){
+            if(num4===20){
+                break;
+            }
+            num4++;
+        }
+
+        console.log(`${num4}で終了`);
+
+        // continue文
+        let num5 = 0;
+
+        while(num5<50){
+            num5++;
+
+            if(num5%2==0){
+                continue;
+            }
+            console.log(num5);
+        }
+
+    </script>
+</body>
