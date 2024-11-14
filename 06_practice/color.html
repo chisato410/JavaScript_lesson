@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>応用</title>
+</head>
+<body>
+    <button id="red" class="btn">aa3333</button><!-- /#red.btn -->
+    <button id="blue" class="btn">33aa33</button><!-- /#blue.btn -->
+    <button id="green" class="btn">3333aa</button><!-- /#green.btn -->
+
+    <script>
+        // const redbtn = document.getElementById('red');
+        // redbtn.addEventListener('click', function(){
+        //     document.body.style.backgroundColor = `#${redbtn.innerHTML}`
+        // });
+
+        // const bluebtn = document.getElementById('blue');
+        // bluebtn.addEventListener('click', function () {
+        //     document.body.style.backgroundColor = `#${bluebtn.innerHTML}`
+        // });
+
+        // const greenbtn = document.getElementById('green');
+        // greenbtn.addEventListener('click', function () {
+        //     document.body.style.backgroundColor = `#${greenbtn.innerHTML}`
+        // });
+
+        const btn = document.querySelectorAll('.btn');
+        for (let i = 0; i < btn.length; i++){
+            btn[i].addEventListener('click', function(){
+                document.body.style.backgroundColor = `#${btn[i].innerHTML}`;
+            })
+        }
+
+    </script>
+</body>
+</html>

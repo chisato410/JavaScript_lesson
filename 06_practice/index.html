@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配列</title>
+</head>
+<body>
+    <ul>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li class="obj">ccc</li><!-- /.obj -->
+        <li class="obj">ddd</li><!-- /.obj -->
+    </ul>
+
+    <script>
+        // 配列の宣言
+        const fruits = ['apple', 'banana', 'orange'];
+        console.log(fruits);
+
+        const animal = new Array('cat', 'dog', 'bird');
+        console.log(animal);
+
+        // 配列の長さの指定
+        const fish = new Array(3);
+        console.log(fish);
+
+        // 空の配列の宣言
+        const empty = [];
+        console.log(empty);
+
+        // 値の取得
+        console.log(fruits[0]); //０番目の値を取得
+
+        // 値を変更
+        fruits[1] = 'peach'; //１番目の値を変更する
+        console.log(fruits);
+        // 配列自体はconstで宣言されているけど配列の値は変更可
+
+        // 配列の長さ（値の数）を取得
+        console.log(fruits.length);
+
+        // 配列の最後の値を取得
+        console.log(fruits[fruits.length -1]);
+
+        // 添字を利用したfor文
+        for(let i = 0; i < fruits.length; i++){
+            console.log(`${i}番目の値は、${fruits[i]}です。`);
+        }
+
+        // 練習(配列内の合計)
+        const num = [5, 10, 15, 20, 25, 30];
+        let sum = 0;
+
+        for (let i = 0; i < num.length; i++ ){
+            sum += num[i]
+        }
+
+        console.log(sum);
+        sum = 0;
+
+        // 練習（配列の最初と最後以外の合計）
+        for (let i = 1; i < num.length-1; i++){
+            sum += num[i];
+        }
+
+        console.log(sum);
+
+        // 複数要素の取得(要素名で指定)
+        const listTag = document.getElementsByTagName('li');
+        console.log(listTag);
+
+        // 取得した値を配列にように扱う
+        for (let i = 0; i < listTag.length; i++){
+            console.log(listTag[i]);
+        }
+
+        // 複数要素の取得（クラス名）
+        const listClass = document.getElementsByClassName('obj');
+        console.log(listClass);
+
+        for(let i = 0; i < listClass.length; i++){
+            console.log(listClass[i].innerHTML);
+        }
+
+        // セレクタAPIで指定
+        const elem = document.querySelector('.obj');// セレクタに一致した最初の要素だけを取得
+        console.log(elem);
+
+        const all = document.querySelectorAll('.obj');// セレクタに一致した全ての要素を取得
+        console.log(all);
+
+        // 練習(クラス名「obj」がついている要素をクリックしたら、コンソールに何かしら表示)
+        const obj = document.querySelectorAll('.obj');
+
+        // 配列（正確にはNodeList）に入っている要素全てにクリックイベントを登録する
+        for (let i = 0; i < obj.length; i++){
+            obj[i].addEventListener('click', function(){
+                console.log(obj[i].innerHTML);
+            })
+        }
+
+    </script>
+
+</body>
+</html>
