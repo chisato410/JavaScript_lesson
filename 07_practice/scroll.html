@@ -40,11 +40,18 @@
 
         window.addEventListener("scroll", function () {
             console.log(window.scrollY);
-            if(window.scrollY > 300){
+            if(window.scrollY > 300 && !btn.classList.contains("active")){
                 btn.classList.add('active');
-            } else{
+            } else if(window.scrollY <= 300 && btn.classList.contains("active")) {
                 btn.classList.remove('active');
             }
+
+            // スクロール量が300より多いかつ、クラス名にactiveが含まれていない場合、
+            // スクロール量が300以内かつ、クラス名にactiveが含まれているとき
+
+            // ! 否定
+            // && かつ
+            // || または
         });
 
     </script>
