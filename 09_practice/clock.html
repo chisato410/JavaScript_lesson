@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body{
+            overflow: hidden;
+            margin: 0;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        /* 全体を囲うコンテナー */
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-color: #15151e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-size: 300% 300%;
+            color: #daf6ff;
+            text-shadow: 0 0 20px #0aafe6;
+        }
+
+        /* 時計の共通スタイル */
+        .clock {
+            font-family: 'Share Tech Mono', monospace;
+            color: #daf6ff;
+            text-shadow: 0 0 20px #0aafe6;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        /* 日付のスタイル */
+        .clock-date {
+            font-size: 25px;
+        }
+
+        /* 時間のスタイル */
+        .clock-time {
+            font-size: 100px;
+        }
+
+        /* 文字サイズ調整 */
+        @media screen and (max-width: 500px) {
+            .clock-date {
+                font-size: 5vw;
+            }
+            .clock-time {
+                font-size: 20vw;
+            }
+        }
+
+        .icon{
+            font-size: 70px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <canvas id="starCanvas"></canvas>
+    <div class="container">
+        <div class="clock">
+            <p class="icon"></p><!-- /.icon -->
+            <p class="clock-date"></p>
+            <p class="clock-time"></p>
+        </div>
+    </div>
+
+    <script>
+    // 星空のアニメーションスクリプト
+        const startStarAnimation = (canvas) => {
+            const ctx = canvas.getContext("2d");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const stars = [];
+            const starCount = 100;
+
+            // 星オブジェクトを作成
+            for (let i = 0; i < starCount; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.5 + 0.5,
+                    speed: Math.random() * 0.5 + 0.2,
+                });
+            }
+
+            // 星の描画
+            const drawStars = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                stars.forEach(star => {
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = "#ffffff";
+                    ctx.fill();
+                });
+            };
+
+            // 星の動き
+            const updateStars = () => {
+                stars.forEach(star => {
+                    star.y += star.speed;
+                    if (star.y > canvas.height) star.y = 0;
+                });
+            };
+
+            const animate = () => {
+                drawStars();
+                updateStars();
+                requestAnimationFrame(animate);
+            };
+
+            animate();
+
+            // ウィンドウリサイズ時の対応
+            window.addEventListener("resize", () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        };
+
+        const clock = () => {
+            // 現在の日時・時刻の情報を取得
+            const d = new Date();
+
+            // 年を取得
+            let year = d.getFullYear();
+            // 月を取得
+            let month = d.getMonth() + 1;
+            // 日を取得
+            let date = d.getDate();
+            // 曜日を取得
+            let dayNum = d.getDay();
+            const weekday = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"];
+            let day = weekday[dayNum];
+            // 時を取得
+            let hour = d.getHours();
+            // 分を取得
+            let min = d.getMinutes();
+            // 秒を取得
+            let sec = d.getSeconds();
+
+            // 1桁の場合は0を足して2桁に
+            month = month < 10 ? "0" + month : month;
+            date = date < 10 ? "0" + date : date;
+            hour = hour < 10 ? "0" + hour : hour;
+            min = min < 10 ? "0" + min : min;
+            sec = sec < 10 ? "0" + sec : sec;
+
+            // 日付・時刻の文字列を作成
+            let today = `${year}.${month}.${date} ${day}`;
+            let time = `${hour}:${min}:${sec}`;
+
+            // 文字列を出力
+            document.querySelector(".clock-date").innerText = today;
+            document.querySelector(".clock-time").innerText = time;
+
+            // 18時以降に星空を表示
+            const canvas = document.getElementById("starCanvas"); // キャンバスを取得
+            if (parseInt(hour, 10) >= 18) {
+                canvas.style.display = "block"; // キャンバスを表示
+                if (!canvas.animationStarted) {
+                    startStarAnimation(canvas); // 星空アニメーションを開始
+                    canvas.animationStarted = true; // 重複防止フラグ
+                }
+            }
+
+            setTimeout(clock , 1000 -d.getMilliseconds);
+
+            // 時間ごとに背景色を変更＆アイコン
+            const container = document.querySelector(".container");
+            const icon = document.querySelector(".icon");
+            if (hour >= 6 && hour < 12){
+                container.style.backgroundColor = "#FFFAF0";
+                icon.textContent = "☀️";
+            } else if (hour >= 12 && hour <17){
+                container.style.backgroundColor = "#87CEEB";
+                icon.textContent = "🌤️";
+            } else {
+                container.style.backgroundColor = "#15151e";
+                icon.textContent = "🌙";
+            }
+        }
+        clock();
+
+        </script>
+</body>
+
+</html>

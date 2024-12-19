@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #f00;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="back">戻る</button><!-- /.back -->
+    <button class="back2">２つ戻る</button><!-- /.back2 -->
+
+    <button class="get">取得</button><!-- /.get -->
+    <button class="set">移動</button><!-- /.set -->
+
+    <div></div>
+
+    <script>
+        // history
+        console.log(history);
+
+        const back = document.querySelector('.back');
+        back.addEventListener('click' , () => {
+            history.back();
+        });
+
+        const back2 = document.querySelector('.back2');
+        back2.addEventListener('click' , ()=> {
+            history.go(-2);
+        });
+
+        // ロケーション
+        const get = document.querySelector('.get');
+        get.addEventListener('click', () => {
+            alert(location);
+        });
+
+        const set = document.querySelector('.set');
+        set.addEventListener('click', () => {
+            location.assign("https://computer.trident.ac.jp/");
+        });
+
+        // mathオブジェクト（ランダム）
+        //「0.0000...」から「4.9999...」までのランダムな小数を取得する
+            let num = Math.random() * 5;
+
+        //小数を切り捨てて、「0」から「4」までのランダムな整数を取得する
+        num = Math.floor(Math.random() * 5);
+
+        //「1」をプラスすることで、「1」から「5」までのランダムな整数を取得する
+        num = Math.floor(Math.random() * 5) + 1;
+
+        console.log(num);
+
+
+        // mathオブジェクト（円運動）
+        // const el = document.querySelector('div');
+        // const enter = 100;
+        // const radius = 50;
+
+        // setInterval(() => {
+        //     const t = new Date().getTime() / 500;
+
+        //     const x = center + (Math.cos(t) * radius);
+        //     const y = center + (Math.sin(t) * radius);
+
+        //     el.setAttribute('style', `top: ${x}px; left: ${y}px`)
+        // }, 10);
+
+        const el = document.querySelector('div');
+        const center = 100;
+        const radius = 50;
+
+        setInterval(() => {
+            const t = new Date().getTime() / 500;
+
+            const x = center + (Math.sin(t) * radius);
+            const y = center + (Math.cos(t) * radius);
+
+            el.setAttribute('style', `top: ${x}px; left: ${y}px;`)
+        }, 10);
+
+        // dateオブジェクト
+        //現在の時間を取得する
+        let date = new Date();
+        console.log(date);
+
+        //「1970年1月1日」からの経過ミリ秒数を取得する
+        console.log(Date.now());
+
+        //時間や分を個別に取得する
+        let date2 = new Date();
+        console.log(date2.getFullYear());
+        console.log(date2.getMonth());
+        console.log(date2.getDate());
+        console.log(date2.getHours());
+        console.log(date2.getMinutes());
+        console.log(date2.getSeconds());
+    </script>
+</body>
+</html>
