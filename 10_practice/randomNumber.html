@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランダムな数字を生成</title>
+</head>
+
+<body>
+    <button id="btn">生成</button>
+
+    <script>
+        const url = [
+            'https://content-jp.umgi.net/products/ui/uicy-25068_ymI_extralarge.jpg?12052017115132',
+            'https://www.cdjournal.com/image/jacket/large/411607/4116070542.jpg',
+            'https://m.media-amazon.com/images/I/51mRV+wyrlL._UF1000,1000_QL80_.jpg',
+            'https://content-jp.umgi.net/products/ui/uicy-20184_Pid_extralarge.jpg?12052017115311',
+            'https://www.beatink.com/upload/save_image/01191525_63c8e25f8df94.jpg'
+        ]
+        const btn = document.querySelector('#btn');
+        const ul = document.createElement('ul');
+        const img = document.createElement('img');
+
+        document.body.append(img);
+
+        btn.addEventListener('click', () => {
+            const li = document.createElement('li');
+            img.setAttribute('src', url[Math.floor(Math.random()*url.length)]);
+            img.setAttribute('width', '400');
+            li.append(img);
+            ul.append(li);
+        });
+    </script>
+</body>
+
+</html>
