@@ -37,7 +37,7 @@
                 pic: "https://dotown.maeda-design-room.net/wp-content/uploads/2022/01/thing_hippo_02.png",
                 hp: 10,
                 clear: () => {
-                    alert("ピンクカバを倒した！");
+                    alert(`${this.name}を倒した！`);
                 },
             },
             {
@@ -59,6 +59,11 @@
         ];
 
         const monsterAll = document.querySelector(".monster-all");
+
+        // 順番にオブジェを取り出すとき
+        monsters.forEach((obj) => {
+            console.log(obj.name)
+        });
 
         for (let i = 0; i < monsters.length; i++){
 
